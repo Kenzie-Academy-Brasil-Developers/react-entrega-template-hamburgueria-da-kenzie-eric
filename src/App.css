@@ -1,0 +1,6 @@
+main {
+  height: 100%;
+  margin: 1rem 7.1875rem;
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+}
