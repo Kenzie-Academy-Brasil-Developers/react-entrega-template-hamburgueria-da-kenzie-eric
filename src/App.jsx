@@ -6,6 +6,8 @@ import { Logo } from './fragments/Logo'
 import { InputSearch } from './fragments/InputSearch'
 import { api } from './services/api';
 import './App.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -31,7 +33,12 @@ function App() {
   }
   const handleClick = (id) => {
     const product = products.find((element) => element.id === id);
-    setCurrentSale([...currentSale, product])
+    if (currentSale.includes(product)) {
+      return toast.warn("Este item já esta no carrinho")
+    } else {
+      setCurrentSale([...currentSale, product]);
+      return toast.success("Item adicionado ao carrinho")
+    }
   }
   const calcTotal = (element = 0) => {
     const list = currentSale.map(element => element.price)
@@ -40,13 +47,14 @@ function App() {
   }
   const clearArray = () => {
     setCurrentSale([])
+    toast.error("Todos os itens foram removidos")
   }
   const removeItem = (id) => {
     const product = currentSale.filter((e, index) => index !== id);
     const newValor = product.map(element => element.price);
-    if(newValor.length !== 0) {
-      setCartTotal(newValor.reduce((acc, cur) => acc +cur))
-    }else {
+    if (newValor.length !== 0) {
+      setCartTotal(newValor.reduce((acc, cur) => acc + cur))
+    } else {
       setCartTotal(0)
     }
     setCurrentSale(product)
@@ -60,9 +68,10 @@ function App() {
       </Header>
       <main>
         <ProductList state={filteredProducts.length !== 0 ? filteredProducts : products} callback={handleClick} calc={calcTotal} />
-        <Cart state={currentSale} total={cartTotal} remove={removeItem} set={clearArray}/>
+        <Cart state={currentSale} total={cartTotal} remove={removeItem} set={clearArray} />
       </main>
-    </div>
+      <ToastContainer position='bottom-right' autoClose={1500} />
+    </div >
   )
 }
 

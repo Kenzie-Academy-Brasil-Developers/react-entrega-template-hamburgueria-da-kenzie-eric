@@ -64,14 +64,19 @@ export const StyledCart = styled.div`
     > button {
       width: 100%;
       height: 60%;
-      background: #e0e0e0;
-      border: 2px solid #e0e0e0;
+      background: var(--gray-20);
+      border: 2px solid var(--gray-20);
       border-radius: 8px;
       padding: 1rem 1.25rem;
       font-family: "Inter", sans-serif;
       font-size: 1rem;
       font-weight: 600;
       color: var(--gray-50);
+      :hover {
+        background: var(--gray-50);
+        border: 2px solid var(--gray-50);
+        color: var(--gray-20);
+      }
     }
   }
 `;
