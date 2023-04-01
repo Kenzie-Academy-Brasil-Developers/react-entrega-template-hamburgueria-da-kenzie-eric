@@ -8,12 +8,14 @@ import { api } from './services/api';
 import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { Results } from './fragments/Results'
 
 function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([])
   const [cartTotal, setCartTotal] = useState(0);
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     async function loadProducts() {
@@ -28,7 +30,8 @@ function App() {
   }, [])
 
   const showProducts = (state, search) => {
-    const filtered = state.filter(element => element.name.includes(search));
+    const filtered = state.filter(element => element.name.includes(search) || element.category.includes(search));
+    setSearch(search)
     setFilteredProducts(filtered)
   }
   const handleClick = (id) => {
@@ -66,12 +69,13 @@ function App() {
         <Logo />
         <InputSearch state={products} callback={showProducts} />
       </Header>
+      {search !== "" ? <Results state={search} /> : ""}
       <main>
-        <ProductList state={filteredProducts.length !== 0 ? filteredProducts : products} callback={handleClick} calc={calcTotal} />
+        <ProductList state={filteredProducts.length !== 0 ? filteredProducts : products}  callback={handleClick} calc={calcTotal} />
         <Cart state={currentSale} total={cartTotal} remove={removeItem} set={clearArray} />
       </main>
       <ToastContainer position='bottom-right' autoClose={1500} />
-    </div >
+    </div>
   )
 }
 

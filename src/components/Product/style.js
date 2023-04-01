@@ -47,7 +47,8 @@ export const StyledProduct = styled.li`
   }
   @media (min-width: 768px) {
   > div {
-    height: 45%;
-    gap: .5rem;
+    height: 50%;
+    gap: 1rem;
+    padding: .5rem 1rem;
   }
 `;
