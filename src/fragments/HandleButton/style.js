@@ -28,7 +28,7 @@ export const StyledButton = styled.button`
           width: 6.65rem;
           padding: 0.5rem 1.25rem;
           right: 100px;
-          bottom: 20px;
+          bottom: 30px;
         }
         @media (min-width: 1440px) {
           bottom: 40px;
