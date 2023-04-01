@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const StyledProduct = styled.li`
-  width: 90%;
-  height: 21.625rem;
+  width: 87%;
+  height: 100%;
   border: 2px solid #e0e0e0;
   border-radius: 5px;
-  transition: 0.5s ease-in;
   img {
     width: 100%;
     height: 50%;
@@ -16,7 +15,7 @@ export const StyledProduct = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 1rem;
+    gap: .5rem;
     padding: 0.25rem 1rem;
     width: 100%;
     height: 45%;
@@ -41,5 +40,14 @@ export const StyledProduct = styled.li`
     transition: 1s ease-out;
     cursor: pointer;
     margin: 0.5rem;
+  }
+  @media (min-width: 768px) {
+    height: 100%;
+    transition: 0.5s ease-in;
+  }
+  @media (min-width: 768px) {
+  > div {
+    height: 45%;
+    gap: .5rem;
   }
 `;

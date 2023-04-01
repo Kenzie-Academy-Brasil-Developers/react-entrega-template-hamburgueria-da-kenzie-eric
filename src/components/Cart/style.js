@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledCart = styled.div`
   width: 100%;
-  height: 33.125rem;
+  height: 18.75rem;
+  margin: .5rem 1rem;
   > h3 {
     display: flex;
     justify-content: flex-start;
@@ -78,5 +79,12 @@ export const StyledCart = styled.div`
         color: var(--gray-20);
       }
     }
+  }
+  @media (min-width:768px) {
+    height: 20.125rem;
+  }
+  @media (min-width:1024px) {
+    
+    height: 33.125rem;
   }
 `;
