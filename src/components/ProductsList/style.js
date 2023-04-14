@@ -21,6 +21,9 @@ export const StyledList = styled.ul`
   @media (min-width: 1024px) {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 4ch 0.5ch;
+    grid-gap: 3ch 1ch;
+  }
+  @media (min-width: 1440px) {
+    grid-gap: 1ch .25ch;
   }
 `;

@@ -27,11 +27,11 @@ export const StyledButton = styled.button`
         @media (min-width: 1024px) {
           width: 6.65rem;
           padding: 0.5rem 1.25rem;
-          right: 100px;
-          bottom: 30px;
+          right: 6.25rem;
+          bottom: 1.8rem;
         }
         @media (min-width: 1440px) {
-          bottom: 40px;
+          bottom: 3.125rem;
         }
       `;
     }
